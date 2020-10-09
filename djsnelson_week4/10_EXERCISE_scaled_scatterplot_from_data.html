@@ -32,7 +32,7 @@
 
 			var dataset, xScale, yScale, rScale;
 
-			var formatTime = d3.timeFormat("%m/%d/%y");
+			var formatTime = d3.timeFormat("%H");
 
 			var rowConverter = function(d) {
                 var date = new Date(d["Created Date"])
@@ -89,7 +89,10 @@
                //the range would be of your choosing, experiment till it looks ok
 
 				rScale = d3.scaleLinear()
-				 					.domain([0, d3.max(dataset, function(d) { return d[1]; })])
+				 					.domain([
+									d3.max(dataset, function(d) { return d.Count; })
+									d3.max(dataset, function(d) { return d.Count; })
+								])
 				 				 	.range([2, 5]);
 
 				var svg = d3.select("body")
